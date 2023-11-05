@@ -337,6 +337,8 @@ class LatestModelCheckpoint(ModelCheckpoint):
             self._save_model(filepath)
             for old_ckpt in self.get_all_ckpts()[self.num_ckpt_keep:]:
                 # TODO: test filesystem calls
+                with open(f'{old_ckpt}', "w") as file:
+                  file.write("")
                 os.remove(old_ckpt)
                 # subprocess.check_call(f'del "{old_ckpt}"', shell=True)
                 if self.verbose > 0:
