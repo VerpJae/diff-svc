@@ -43,10 +43,9 @@ def set_hparams(config='', exp_name='', hparams_str='', print_hparams=True, glob
     else:
         args = Args(config=config, exp_name=exp_name, hparams=hparams_str,
                     infer=infer, validate=False, reset=reset, debug=False)
-    args_work_dir = '/content/drive/MyDrive/checkpoints/test'
-    #if args.exp_name != '':
-    #    args.work_dir = args.exp_name
-    #    args_work_dir = f'checkpoints/{args.work_dir}'
+    if args.exp_name != '':
+        args.work_dir = args.exp_name
+        args_work_dir = f'checkpoints/{args.work_dir}'
 
     config_chains = []
     loaded_config = set()
